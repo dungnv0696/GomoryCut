@@ -9,7 +9,7 @@ coefficient of objective function <br />
 matrix coefficient of A <br />
 vector coefficient of b <br />
 
-Example:
+Example:<br />
 2 <br />
 -2 3 0 0 <br />
 1 0 1 0 <br />
