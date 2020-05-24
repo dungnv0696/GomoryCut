@@ -1,4 +1,4 @@
-from simplex import simplex
+from LP import simplex
 from fractions import Fraction
 import numpy as np
 
@@ -47,18 +47,18 @@ def main():
             table[i][j] = Fraction(table[i][j]).limit_denominator(100)
 
     ##Gomory-cut cho 1 bien 
-    # table, cut = gomory_cut(table)
-    # if cut == True:
-    #     table = sim.dualSimplex(table)
-    #     obj = np.sum(table[:, 1]*table[:, 2])
-    #     print("Obj = ", Fraction(obj).limit_denominator(100))
-    #     result = np.zeros((len(A[0])))
-    #     for i in range (len(table)):
-    #         if (i < len(A[0])):
-    #             result[i] = table[i][2]
+    table, cut = gomory_cut(table)
+    if cut == True:
+        table = sim.dualSimplex(table)
+        obj = np.sum(table[:, 1]*table[:, 2])
+        print("Obj = ", Fraction(obj).limit_denominator(100))
+        result = np.zeros((len(A[0])))
+        for i in range (len(table)):
+            if (i < len(A[0])):
+                result[i] = table[i][2]
 
-    #     for i in range (len(result)):
-    #         print("X"+str(i), "=", Fraction(result[i]).limit_denominator(100))
+        for i in range (len(result)):
+            print("X"+str(i), "=", Fraction(result[i]).limit_denominator(100))
 
 def isInteger(fraction):
     if (fraction.denominator == 1):
